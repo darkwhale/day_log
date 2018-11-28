@@ -2,30 +2,15 @@ from setuptools import setup, find_packages
 
 setup(
     name="day_log",
+    version='0.0.1',
     packages=find_packages(),
-    version='0.1',
     description="make logs per day",
     author="xinyang zhou",
     author_email='308885823@qq.com',
-    url="https://github.com/username/reponame",
-    download_url='https://github.com/username/reponame/archive/0.1.tar.gz',
-    keywords=['command', 'line', 'tool'],
-    classifiers=[],
-    entry_points={
-        'console_scripts': [
-        'command1 = advisorhelper.cmdline:execute'
-        'command2 = adviserserver.create_algorithm:run',
-        'command3 = adviserserver.run_algorithm:run'
-    ]
-    },
-    install_requires=[
-        'grpcio>=1.7.0',
-        'numpy',
-        'requests',
-    ]
+    url="https://github.com/darkwhale/day_log",
+    download_url='https://github.com/darkwhale/day_log/archive/master.zip',
+    keywords=['log', 'day'],
+    classifiers=[
+        'Operating System :: OS Independent',
+    ],
 )
----------------------
-作者：libbyandhelen
-来源：CSDN
-原文：https://blog.csdn.net/libbyandhelen/article/details/78808959
-版权声明：本文为博主原创文章，转载请附上博文链接！
