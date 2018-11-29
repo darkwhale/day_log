@@ -26,7 +26,7 @@ class LogHandler(object):
         return os.path.join(self.log_dir, date)
 
     # 写日志;
-    def write_log(self, write_type, *args):
+    def __write_log(self, write_type, *args):
         log_str = ' '.join(args)
         write_log = time.strftime(self.date_format, time.localtime(time.time())) + "---" + write_type.ljust(7, '-') \
                     + "--" + log_str + '\n'
@@ -39,21 +39,21 @@ class LogHandler(object):
 
     # 写debug级别日志；
     def debug(self, *args):
-        self.write_log("DEBUG", *args)
+        self.__write_log("DEBUG", *args)
 
     # 写info级别日志；
     def info(self, *args):
-        self.write_log("INFO", *args)
+        self.__write_log("INFO", *args)
 
     # 写warning级别日志；
     def warning(self, *args):
-        self.write_log("WARNING", *args)
+        self.__write_log("WARNING", *args)
 
     # 写error级别日志；
     def error(self, *args):
-        self.write_log("ERROR", *args)
+        self.__write_log("ERROR", *args)
 
-    def show_log(self, show_type, day):
+    def __show_log(self, show_type, day):
         file_path = os.path.join(self.log_dir, day)
 
         # 查找该控制器下字符串中级别信息所在的索引,用于查找字符串；
@@ -67,19 +67,19 @@ class LogHandler(object):
 
     # 显示某日所有的debug级别的日志信息；
     def show_debug(self, day=time.strftime('%Y-%m-%d', time.localtime(time.time()))):
-        self.show_log("DEBUG", day)
+        self.__show_log("DEBUG", day)
 
     # 显示某日所有的info级别的日志信息；
     def show_info(self, day=time.strftime('%Y-%m-%d', time.localtime(time.time()))):
-        self.show_log("INFO", day)
+        self.__show_log("INFO", day)
 
     # 显示某日所有的warning级别的日志信息；
     def show_warning(self, day=time.strftime('%Y-%m-%d', time.localtime(time.time()))):
-        self.show_log("WARNING", day)
+        self.__show_log("WARNING", day)
 
     # 显示某日所有的error级别的日志信息；
     def show_error(self, day=time.strftime('%Y-%m-%d', time.localtime(time.time()))):
-        self.show_log("ERROR", day)
+        self.__show_log("ERROR", day)
 
     def __str__(self):
         return self.date_format
